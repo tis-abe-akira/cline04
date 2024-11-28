@@ -1,50 +1,109 @@
-# React + TypeScript + Vite
+# Proman - プロジェクト管理システム
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Promanは、プロジェクトの登録、検索、管理を効率的に行うためのWebアプリケーションです。
 
-Currently, two official plugins are available:
+## 機能概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. プロジェクト検索
+- 複数の検索条件による柔軟な検索
+- 検索条件の折りたたみ機能（アニメーション付き）
+- ページネーション機能
+- 検索結果の一覧表示
 
-## Expanding the ESLint configuration
+### 2. プロジェクト詳細
+- プロジェクト情報の詳細表示
+- 編集機能
+- 削除機能（確認ダイアログ付き）
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 3. プロジェクト登録
+- 新規プロジェクトの登録
+- 入力内容の確認ダイアログ
+- バリデーション機能
 
-- Configure the top-level `parserOptions` property like this:
+## 実行方法
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. 依存パッケージのインストール
+```bash
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. 開発サーバーの起動
+```bash
+npm run dev
 ```
+
+3. ビルド
+```bash
+npm run build
+```
+
+4. ビルドしたアプリケーションのプレビュー
+```bash
+npm run preview
+```
+
+## 技術スタック
+
+### フロントエンド
+- React 18
+- TypeScript
+- React Router DOM
+- Tailwind CSS（スタイリング）
+
+### 開発環境
+- Vite（ビルドツール）
+- ESLint（コード品質管理）
+- TypeScript（型システム）
+
+### 特徴
+- モダンなReactの機能を活用（Hooks, Context等）
+- TypeScriptによる型安全性の確保
+- コンポーネントベースのアーキテクチャ
+- レスポンシブデザイン
+- アニメーションによるUX向上
+
+## ディレクトリ構造
+
+```
+proman/
+├── src/                    # ソースコード
+│   ├── components/         # Reactコンポーネント
+│   │   ├── TopPage.tsx           # トップページ
+│   │   ├── ProjectSearch.tsx     # プロジェクト検索
+│   │   ├── ProjectDetail.tsx     # プロジェクト詳細
+│   │   ├── ProjectEdit.tsx       # プロジェクト編集
+│   │   ├── ProjectRegistration.tsx # プロジェクト登録
+│   │   └── ConfirmationModal.tsx  # 確認ダイアログ
+│   ├── assets/            # 静的アセット
+│   ├── App.tsx           # メインアプリケーション
+│   └── main.tsx         # エントリーポイント
+├── public/              # 公開ファイル
+├── index.html          # HTMLテンプレート
+├── package.json       # プロジェクト設定
+├── tsconfig.json     # TypeScript設定
+├── vite.config.ts   # Vite設定
+└── tailwind.config.js # Tailwind CSS設定
+```
+
+## 主要コンポーネント
+
+### ProjectSearch
+- 検索条件の入力フォーム
+- 検索結果の表示
+- 折りたたみ可能な検索条件パネル
+- ページネーション機能
+
+### ProjectDetail
+- プロジェクト情報の詳細表示
+- 編集・削除機能
+- 前画面への戻り機能
+
+### ProjectRegistration
+- 新規プロジェクトの登録フォーム
+- 入力バリデーション
+- 確認ダイアログ
+
+### ConfirmationModal
+- 汎用的な確認ダイアログ
+- プロジェクトの登録/更新/削除時の確認
+- カスタマイズ可能なメッセージとボタン
