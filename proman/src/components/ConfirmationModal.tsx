@@ -10,6 +10,7 @@ interface ConfirmationModalProps {
     businessUnit: string;
     projectName: string;
     projectType: string;
+    customer: string;
     sales: string;
     pm: string;
     pl: string;
@@ -52,6 +53,10 @@ const ConfirmationModal = ({
               <div>
                 <p className="font-semibold">PJ種別:</p>
                 <p>{projectData.projectType}</p>
+              </div>
+              <div>
+                <p className="font-semibold">顧客:</p>
+                <p>{projectData.customer}</p>
               </div>
               <div>
                 <p className="font-semibold">売上高(千円):</p>
